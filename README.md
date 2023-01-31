@@ -14,6 +14,7 @@ Addition info:
 
 * The [boost_mi_visual1.do](./data/boost_mi_visual1.do) contains the script for original data visualization and mi computation.
 * The [boost_mi_visual2.do](./data/boost_mi_visual2.do) contains the script for pattern of missing values, data visualization before- and after- mi computation.
+* The [boost_panel_wss.dta](./data/boost_panel_wss.dta) contains the panel dataset of total and capital expenditure in Water, Sanitation and Supply (WSS) sector.
 * The [figures](/figures) folder contains the data visualization images.
 
 Documentation: 
@@ -22,9 +23,7 @@ Documentation:
 Other Guide:
 [UCLA Stata website using mi for panel dataset](https://stats.oarc.ucla.edu/stata/faq/how-can-i-perform-multiple-imputation-on-longitudinal-data-using-ice/)
  
-## Preview
-
-### Brief description of data source
+## Brief description of data source
 
 BOOST national fiscal data (2009-2018): on expenditure flows from treasury systems available from the BOOST database managed by the World Bank and funded by the Bill & Melinda Gates Foundation. In 2022, the number of countries covered in the dataset increased to 88.
 
@@ -36,29 +35,33 @@ o	Available on an annual basis and allows for in-depth sectoral analysis
 
 o	Time consuming for countries with insufficient functional classification
 
+## Preview
 ### Visualization
+#### traditional way to visualize panel dataset
 
-<img src="./figures/scatter_tab1.png" height="200"><img src="./figures/line_tab1.png" height="200">
-<img src="./figures/bar_tab1.png" height="200"><img src="./figures/barh_tab1.png" height="200">
-<img src="./figures/pie_tab1.png" height="200"><img src="./figures/box_tab1.png" height="200">
+pooled-year average by country for capital expenditure and operating expenditure in WSS sector
+<img src="./figures/wss_capex_avgbycountry.png" height="300"><img src="./figures/wss_opex_avgbycountry.png" height="300">
 
-### tab2 (12 colors)
+pooled-country average by year for capital expenditure and operating expenditure in WSS sector
+<img src="./figures/wss_capex_avgbyyear.png" height="300"><img src="./figures/wss_opex_avgbyyear.png" height="300">
 
-<img src="./figures/scatter_tab2.png" height="200"><img src="./figures/line_tab2.png" height="200">
-<img src="./figures/bar_tab2.png" height="200"><img src="./figures/barh_tab2.png" height="200">
-<img src="./figures/pie_tab2.png" height="200"><img src="./figures/box_tab2.png" height="200">
+### mi package
 
-### tab3 (12 colors)
+```stata
+mi set mlong
+mi reshape wide ex_ce_watersan ex_re_watersan gdp_usd_cons_2019, i(countryname) j(year)
+mi register imputed ex_re_watersan* ex_ce_watersan*
 
-<img src="./figures/scatter_tab3.png" height="200"><img src="./figures/line_tab3.png" height="200">
-<img src="./figures/bar_tab3.png" height="200"><img src="./figures/barh_tab3.png" height="200">
-<img src="./figures/pie_tab3.png" height="200"><img src="./figures/box_tab3.png" height="200">
+mi impute chained (regress) ex_re_watersan* ex_ce_watersan*  = avg_gdp, add(50) rseed(08312022)
+mi reshape long ex_ce_watersan ex_re_watersan gdp_usd_cons_2019, i(countryname) j(year)
+ 
+```
 
+### pattern of missing values
 
+<img src="./figures/wss_capex_missing_pattern.png" height="400">
 
+### pre-mi vs. after-mi for missing data
 
-
-
-### Change log
-* 08 Nov 2022: v1.4 release. Fixes and corrections to schemes. GitHub folder renamed to stata-schemepack to align it with other dataviz packages.
+<img src="./figures/wss_capex_values.png" height="400"><img src="./figures/wss_capex_values_mi.png" height="400">
 
