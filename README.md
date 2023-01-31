@@ -1,6 +1,10 @@
 # boost_mi
 
+> Missing values imputation by Stata mi pacakge
 
+## About The Project
+
+This study is a further analysis based on Global Public Expenditure Review Report Chapter 3.3 (World Bank Report, forthcoming 2023).
 
 ## Impute Missing Values Using Chained Equation with Panel Data
 
@@ -20,7 +24,19 @@ Other Guide:
  
 ## Preview
 
-### tab1 (12 colors)
+### Brief description of data source
+
+BOOST national fiscal data (2009-2018): on expenditure flows from treasury systems available from the BOOST database managed by the World Bank and funded by the Bill & Melinda Gates Foundation. In 2022, the number of countries covered in the dataset increased to 88.
+
+o	Excludes data on private sector investments, off-budget spending by the government (due to missing data on the execution of foreign-funded spending in high-aid countries), sectoral spending if national classification data does not clearly identify sectoral spending, and investments by state owned enterprises (SOEs), except for national capital transfers. The latter is a major issue given that SOEs constitute a considerable share of the water and sanitation and the electricity sectors, and much of the transport sector. 
+
+o	Small risk of including non-infrastructure spending
+
+o	Available on an annual basis and allows for in-depth sectoral analysis
+
+o	Time consuming for countries with insufficient functional classification
+
+### Visualization
 
 <img src="./figures/scatter_tab1.png" height="200"><img src="./figures/line_tab1.png" height="200">
 <img src="./figures/bar_tab1.png" height="200"><img src="./figures/barh_tab1.png" height="200">
