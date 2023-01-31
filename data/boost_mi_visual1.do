@@ -7,7 +7,7 @@
 
 **# PART I: DATA VISUALIZATION
 	
-	use "$clean\boost_panel.dta", replace
+	use "$clean\boost_panel_wss.dta", replace
 	keep if year>=2009 & year<=2018
 	bysort countryname: egen avg_gdp=mean(gdp_usd_cons_2019)
 	
