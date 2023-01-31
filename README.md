@@ -40,10 +40,10 @@ o	Time consuming for countries with insufficient functional classification
 #### traditional way to visualize panel dataset
 
 pooled-year average by country for capital expenditure and operating expenditure in WSS sector
-<img src="./figures/wss_capex_avgbycountry.png" height="300"><img src="./figures/wss_opex_avgbycountry.png" height="300">
+<img src="./figures/wss_capex_avgbycountry.png" height="500"><img src="./figures/wss_opex_avgbycountry.png" height="500">
 
 pooled-country average by year for capital expenditure and operating expenditure in WSS sector
-<img src="./figures/wss_capex_avgbyyear.png" height="300"><img src="./figures/wss_opex_avgbyyear.png" height="300">
+<img src="./figures/wss_capex_avgbyyear.png" height="500"><img src="./figures/wss_opex_avgbyyear.png" height="500">
 
 ### mi package
 
@@ -59,9 +59,9 @@ mi reshape long ex_ce_watersan ex_re_watersan gdp_usd_cons_2019, i(countryname) 
 
 ### pattern of missing values
 
-<img src="./figures/wss_capex_missing_pattern.png" height="400">
+<img src="./figures/wss_capex_missing_pattern.png" height="500">
 
 ### pre-mi vs. after-mi for missing data
 
-<img src="./figures/wss_capex_values.png" height="400"><img src="./figures/wss_capex_values_mi.png" height="400">
+<img src="./figures/wss_capex_values.png" height="500"><img src="./figures/wss_capex_values_mi.png" height="500">
 
