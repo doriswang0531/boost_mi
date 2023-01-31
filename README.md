@@ -39,11 +39,11 @@ o	Time consuming for countries with insufficient functional classification
 ### Visualization
 #### traditional way to visualize panel dataset
 
-pooled-year average by country for capital expenditure and operating expenditure in WSS sector
-<img src="./figures/wss_capex_avgbycountry.png" height="500"><img src="./figures/wss_opex_avgbycountry.png" height="500">
+pooled-year average by country for capital expenditure in WSS sector
+<img src="./figures/wss_capex_avgbycountry.png" height="500">
 
-pooled-country average by year for capital expenditure and operating expenditure in WSS sector
-<img src="./figures/wss_capex_avgbyyear.png" height="500"><img src="./figures/wss_opex_avgbyyear.png" height="500">
+pooled-country average by year for capital expenditure in WSS sector
+<img src="./figures/wss_capex_avgbyyear.png" height="500">
 
 ### mi package
 
